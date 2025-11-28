@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GatewayMsApplication",
+            "request": "launch",
+            "mainClass": "GatewayMsApplication",
+            "projectName": "GatewayMS"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-UserMsApplication<UserMs>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

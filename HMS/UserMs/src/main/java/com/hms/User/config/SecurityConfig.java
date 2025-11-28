@@ -29,9 +29,9 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain sercurityFilterChain(HttpSecurity http) throws Exception
 	{
-		http.authorizeRequests((requests)->requests.requestMatchers("/**").permitAll().anyRequest().authenticated());
-		http.csrf().disable();
-		return http.build();
+		// http.authorizeRequests((requests)->requests.requestMatchers("/**").permitAll().anyRequest().authenticated());
+		// http.csrf().disable();
+		return http.csrf().disable().authorizeHttpRequests(auth->auth.requestMatchers(request->"SECRET".equals(request.getHeader("X-Secret-Key"))).permitAll().anyRequest().denyAll()).build();
 	}
 
 }

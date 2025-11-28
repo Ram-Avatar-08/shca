@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,6 +69,12 @@ public class UserAPI {
 		final String jwt=jwtUtil.genetateToken(userDetails);
 		return new ResponseEntity<>(jwt, HttpStatus.OK);
 
+	}
+
+
+	@GetMapping("/test")
+	public ResponseEntity<String> test(){
+		return new ResponseEntity<>("Test",HttpStatus.OK);
 	}
 
 }
